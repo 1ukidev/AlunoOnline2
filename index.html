@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluno Online 2</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="test">
+        <h1>Aluno Online 2</h1>
+        <form id="formInformacoes">
+            <div>
+                <label id="lblMatricula" for="txtMatricula">Matrícula:</label><br>
+                <input id="txtMatricula" type="text" size="16" placeholder="Insira sua matrícula" required><br><br>
+            </div>
+            <div>
+                <label id="lblToken" for="txtToken">Token:</label><br>
+                <textarea id="txtToken" rows="5" cols="40" placeholder="Insira seu token" required></textarea><br><br>
+            </div>
+            <div>
+                <button id="btnEnviar" type="button" onclick="Util.extrairInformacoes()">Extrair informações</button>
+                <button id="btnBaixarBoletim" type="button" onclick="Util.baixarBoletim()">Baixar boletim</button>
+            </div>
+        </form>
+    </div>
+    <div id="result"></div>
+    <script src="js/script.js"></script>
+</body>
+</html>
