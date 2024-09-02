@@ -60,6 +60,7 @@ const Util = Object.freeze({
     extrairInformacoes: () => {
         if (!Util.validarForm()) { return; }
         result.innerHTML = `<h2>Carregando perfil...</h2>`;
+
         Api.perfil.get(txtMatricula.value, txtToken.value).then(response => {
             result.innerHTML = `<h2>Resultado:</h2>`;
             if (response.error) {
@@ -91,10 +92,22 @@ const Util = Object.freeze({
     baixarBoletim: () => {
         if (!Util.validarForm()) { return; }
         result.innerHTML = `<h2>Carregando boletim...</h2>`;
-        Api.boletim.get(txtMatricula.value, txtToken.value, 2023, 1).then(response => {
+
+        const ano = prompt('Informe o ano do boletim:');
+        const semestre = prompt('Informe o semestre do boletim:');
+        if (!ano || !semestre) {
+            result.innerHTML = `<h2>Resultado:</h2><p>Informe o ano e o semestre</p>`;
+            return;
+        }
+
+        Api.boletim.get(txtMatricula.value, txtToken.value, ano, semestre).then(response => {
             result.innerHTML = `<h2>Resultado:</h2>`;
             if (response.error) {
                 result.innerHTML += `<p>${response.error}</p>`;
+                return;
+            }
+            if (response.length === 0) {
+                result.innerHTML += `<p>Nenhum boletim encontrado para o ano ${ano} e semestre ${semestre}</p>`;
                 return;
             }
             result.innerHTML += `<p>Boletim baixado com sucesso</p>`;
