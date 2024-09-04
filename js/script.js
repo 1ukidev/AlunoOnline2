@@ -51,7 +51,10 @@ const Util = Object.freeze({
 
     validarForm: () => {
         if (!txtMatricula.value || !txtToken.value) {
-            result.innerHTML = `<h2>Resultado:</h2><p>Informe a matrícula e o token</p>`;
+            result.innerHTML = `
+                <h2>Resultado:</h2>
+                <p>Informe a matrícula e o token</p>
+            `;
             return false;
         }
         return true;
@@ -96,7 +99,10 @@ const Util = Object.freeze({
         const ano = prompt('Informe o ano do boletim:');
         const semestre = prompt('Informe o semestre do boletim:');
         if (!ano || !semestre) {
-            result.innerHTML = `<h2>Resultado:</h2><p>Informe o ano e o semestre</p>`;
+            result.innerHTML = `
+                <h2>Resultado:</h2>
+                <p>Informe o ano e o semestre</p>
+            `;
             return;
         }
 
